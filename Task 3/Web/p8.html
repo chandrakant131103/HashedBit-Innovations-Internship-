@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Digit Sum</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+        }
+
+        input{
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkgreen;
+        }
+
+        #result{
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Single Digit Sum Calculator</h1>
+
+        <input
+            type="number"
+            id="number"
+            placeholder="Enter a Number"
+        >
+
+        <br>
+
+        <button onclick="findSum()">
+            Calculate
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function singleDigitSum(num){
+
+            while(num > 9){
+
+                num = String(num)
+                    .split("")
+                    .reduce(
+                        (sum, digit) =>
+                        sum + Number(digit),
+                        0
+                    );
+            }
+
+            return num;
+        }
+
+        function findSum(){
+
+            let num =
+                Number(
+                    document.getElementById("number").value
+                );
+
+            let answer =
+                singleDigitSum(num);
+
+            document.getElementById("result").innerHTML =
+                "Single Digit Sum = " + answer;
+        }
+
+    </script>
+
+</body>
+</html>

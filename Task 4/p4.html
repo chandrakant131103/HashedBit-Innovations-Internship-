@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Style Editor</title>
+
+<style>
+.sample-text{
+    font-size:50px;
+    font-family:Arial;
+    color:navy;
+    text-align:center;
+}
+
+body{
+    padding:20px;
+    font-family:Verdana, sans-serif;
+}
+
+input, button, select{
+    padding:8px;
+    margin:5px;
+}
+
+#styleInfo{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h2>Text Formatting Tool</h2>
+
+<div id="displayText" class="sample-text">
+    Learning JavaScript is Fun
+</div>
+
+<br>
+
+<input type="text" id="colorInput" placeholder="Enter a color">
+
+<button id="applyColor">Apply Color</button>
+
+<br><br>
+
+<input type="range" id="sizeSlider" min="15" max="100" value="50">
+
+<br><br>
+
+<button id="italicStyle">Italic</button>
+<button id="underlineStyle">Underline</button>
+<button id="boldStyle">Bold</button>
+
+<br><br>
+
+<select id="fontSelector">
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Tahoma">Tahoma</option>
+</select>
+
+<br><br>
+
+<button id="showCss">Show Styles</button>
+
+<p id="styleInfo"></p>
+
+<script>
+
+const displayText = document.getElementById("displayText");
+const colorInput = document.getElementById("colorInput");
+const applyColor = document.getElementById("applyColor");
+const sizeSlider = document.getElementById("sizeSlider");
+const italicStyle = document.getElementById("italicStyle");
+const underlineStyle = document.getElementById("underlineStyle");
+const boldStyle = document.getElementById("boldStyle");
+const fontSelector = document.getElementById("fontSelector");
+const showCss = document.getElementById("showCss");
+const styleInfo = document.getElementById("styleInfo");
+
+/* Change Color */
+applyColor.addEventListener("click", function(){
+    displayText.style.color = colorInput.value;
+});
+
+/* Change Font Size */
+sizeSlider.addEventListener("input", function(){
+    displayText.style.fontSize = sizeSlider.value + "px";
+});
+
+/* Italic */
+italicStyle.addEventListener("click", function(){
+    displayText.style.fontStyle =
+        displayText.style.fontStyle === "italic"
+        ? "normal"
+        : "italic";
+});
+
+/* Underline */
+underlineStyle.addEventListener("click", function(){
+    displayText.style.textDecoration =
+        displayText.style.textDecoration === "underline"
+        ? "none"
+        : "underline";
+});
+
+/* Bold */
+boldStyle.addEventListener("click", function(){
+    displayText.style.fontWeight =
+        displayText.style.fontWeight === "bold"
+        ? "normal"
+        : "bold";
+});
+
+/* Font Family */
+fontSelector.addEventListener("change", function(){
+    displayText.style.fontFamily = fontSelector.value;
+});
+
+/* Show Current CSS */
+showCss.addEventListener("click", function(){
+
+    styleInfo.innerHTML =
+        "Color: " + (displayText.style.color || "navy") +
+        " | Size: " + (displayText.style.fontSize || "50px") +
+        " | Font: " + (displayText.style.fontFamily || "Arial") +
+        " | Style: " + (displayText.style.fontStyle || "normal") +
+        " | Weight: " + (displayText.style.fontWeight || "normal") +
+        " | Decoration: " + (displayText.style.textDecoration || "none");
+});
+
+</script>
+
+</body>
+</html>

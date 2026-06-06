@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDIA to INDONESIA</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        p{
+            font-size: 20px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>String Modification Example</h1>
+
+        <button onclick="changeString()">
+            Convert INDIA to INDONESIA
+        </button>
+
+        <p id="original"></p>
+        <p id="result"></p>
+
+    </div>
+
+    <script>
+
+        function changeString(){
+
+            let string = "INDIA";
+
+            let arr = string.split("");
+
+            arr.splice(
+                3,
+                2,
+                "O",
+                "N",
+                "E",
+                "S",
+                "I",
+                "A"
+            );
+
+            let newString = arr.join("");
+
+            document.getElementById("original").innerHTML =
+                "<strong>Original String:</strong> " + string;
+
+            document.getElementById("result").innerHTML =
+                "<strong>Modified String:</strong> " + newString;
+        }
+
+    </script>
+
+</body>
+</html>

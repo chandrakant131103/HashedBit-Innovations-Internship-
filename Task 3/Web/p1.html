@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>States Without Vowel Start</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container{
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background: darkblue;
+        }
+
+        #result{
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        li{
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>States Not Starting With Vowels</h1>
+
+        <button onclick="showStates()">
+            Show States
+        </button>
+
+        <ul id="result"></ul>
+
+    </div>
+
+    <script>
+
+        function showStates(){
+
+            const states = [
+                "Andhra Pradesh",
+                "Bihar",
+                "Goa",
+                "Odisha",
+                "Uttar Pradesh",
+                "Rajasthan",
+                "Kerala"
+            ];
+
+            const noVowelStates =
+                states.filter(
+                    state =>
+                    !/^[AEIOUaeiou]/.test(state)
+                );
+
+            let output = "";
+
+            noVowelStates.forEach(function(state){
+                output += "<li>" + state + "</li>";
+            });
+
+            document.getElementById("result").innerHTML = output;
+        }
+
+    </script>
+
+</body>
+</html>

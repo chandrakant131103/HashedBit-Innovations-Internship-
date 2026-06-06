@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Box Creator</title>
+
+    <style>
+        #boxArea{
+            margin:20px;
+            padding:15px;
+            border:2px dashed #555;
+        }
+
+        .box{
+            margin:10px 0;
+            border:1px solid #666;
+            background-color:lightgreen;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="boxArea"></div>
+
+    <script>
+
+        function addBox(w, h, message){
+
+            let box = document.createElement("div");
+
+            box.style.width = w + "px";
+            box.style.height = h + "px";
+
+            box.innerHTML = message;
+
+            box.className = "box";
+
+            document.getElementById("boxArea").appendChild(box);
+        }
+
+        // Do not modify
+        window.addBox = addBox;
+
+        // Example
+        addBox(250, 120, "JavaScript Box");
+        addBox(180, 90, "Dynamic Content");
+
+    </script>
+
+</body>
+</html>

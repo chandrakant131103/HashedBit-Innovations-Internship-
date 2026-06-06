@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Correction</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        p{
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .result{
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Sentence Correction Program</h1>
+
+        <p id="original"></p>
+
+        <button onclick="correctSentence()">
+            Correct Sentence
+        </button>
+
+        <p id="result" class="result"></p>
+
+    </div>
+
+    <script>
+
+        function correctfn(string, wrong, correct){
+
+            return string.replace(
+                new RegExp(wrong, "g"),
+                correct
+            );
+        }
+
+        const sentence =
+            "I am learning Javascrit.";
+
+        document.getElementById("original").innerHTML =
+            "<strong>Original:</strong> " + sentence;
+
+        function correctSentence(){
+
+            let correctedText =
+                correctfn(
+                    sentence,
+                    "Javascrit",
+                    "JavaScript"
+                );
+
+            document.getElementById("result").innerHTML =
+                "Corrected: " + correctedText;
+        }
+
+    </script>
+
+</body>
+</html>

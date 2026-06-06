@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel and Consonant Counter</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p{
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkgreen;
+        }
+
+        .result{
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Vowel and Consonant Counter</h1>
+
+        <p id="text"></p>
+
+        <button onclick="countCharacters()">
+            Count Letters
+        </button>
+
+        <div class="result">
+            <p id="vowels"></p>
+            <p id="consonants"></p>
+        </div>
+
+    </div>
+
+    <script>
+
+        const text =
+        "This is a random string with more than twenty characters.";
+
+        document.getElementById("text").innerHTML =
+        "<strong>Text:</strong> " + text;
+
+        function countLetters(str){
+
+            const vowels =
+                str.match(/[aeiou]/gi);
+
+            const consonants =
+                str.match(/[bcdfghjklmnpqrstvwxyz]/gi);
+
+            return {
+                vowelsCount:
+                    vowels ? vowels.length : 0,
+
+                consonantsCount:
+                    consonants ? consonants.length : 0
+            };
+        }
+
+        function countCharacters(){
+
+            const result =
+                countLetters(text);
+
+            document.getElementById("vowels").innerHTML =
+                "Vowels Count: " +
+                result.vowelsCount;
+
+            document.getElementById("consonants").innerHTML =
+                "Consonants Count: " +
+                result.consonantsCount;
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Counter</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+        }
+
+        textarea{
+            width: 90%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkgreen;
+        }
+
+        #result{
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Paragraph Word Counter</h1>
+
+        <textarea
+            id="paragraph"
+            placeholder="Enter your paragraph here..."
+        ></textarea>
+
+        <br>
+
+        <button onclick="findWordCount()">
+            Count Words
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function countWords(paragraph){
+
+            if(!paragraph.trim()){
+                return 0;
+            }
+
+            return paragraph
+                .trim()
+                .split(/\s+/)
+                .length;
+        }
+
+        function findWordCount(){
+
+            let text =
+                document.getElementById("paragraph").value;
+
+            let totalWords =
+                countWords(text);
+
+            document.getElementById("result").innerHTML =
+                "Total Words: " + totalWords;
+        }
+
+    </script>
+
+</body>
+</html>

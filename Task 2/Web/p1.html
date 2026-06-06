@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even Numbers</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container{
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #output{
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        button{
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover{
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Even Numbers (1 - 100)</h1>
+
+        <button onclick="showEvenNumbers()">
+            Display Numbers
+        </button>
+
+        <div id="output"></div>
+
+    </div>
+
+    <script>
+
+        function showEvenNumbers(){
+
+            let result = "";
+
+            for(let i = 1; i <= 100; i++){
+
+                if(i % 2 === 0){
+                    result += i + " ";
+                }
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+
+    </script>
+
+</body>
+</html>

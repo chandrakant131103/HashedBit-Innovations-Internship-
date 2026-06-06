@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.light {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.dark {
+    background-color: #222;
+    color: #00ff99;
+}
+
+.btn-light {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-dark {
+    background-color: #00ff99;
+    color: black;
+    border: none;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#container {
+    height: 100%;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container" class="light">
+
+    <h1>Web Development Journey</h1>
+
+    <p>
+        I am learning HTML, CSS, and JavaScript to become a professional web developer.
+        Every day I improve my coding skills by building projects and solving problems.
+    </p>
+
+    <button onclick="changeTheme()" id="themeBtn" class="btn-light">
+        Change Theme
+    </button>
+
+</div>
+
+<script>
+
+function changeTheme() {
+
+    let container = document.getElementById("container");
+    let button = document.getElementById("themeBtn");
+
+    if(container.className === "light") {
+
+        container.className = "dark";
+        button.className = "btn-dark";
+
+    } else {
+
+        container.className = "light";
+        button.className = "btn-light";
+    }
+}
+
+</script>
+
+</body>
+</html>

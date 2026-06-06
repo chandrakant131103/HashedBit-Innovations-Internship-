@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Average Report</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container{
+            width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px lightgray;
+        }
+
+        h1{
+            color: #333;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover{
+            background-color: darkgreen;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Student Average Marks</h1>
+
+        <button onclick="calculateAverage()">
+            Show Averages
+        </button>
+
+        <table id="resultTable">
+            <tr>
+                <th>Student</th>
+                <th>Average Marks</th>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+
+        const input = {
+
+            student1: {
+                subject1: 44,
+                subject2: 56,
+                subject3: 87,
+                subject4: 97,
+                subject5: 37
+            },
+
+            student2: {
+                subject1: 44,
+                subject2: 56,
+                subject3: 67,
+                subject4: 87,
+                subject5: 37
+            },
+
+            student3: {
+                subject1: 44,
+                subject2: 76,
+                subject3: 57,
+                subject4: 97,
+                subject5: 87
+            }
+        };
+
+        function calculateAverage(){
+
+            const output = {};
+
+            for(const [student, subjects]
+                of Object.entries(input)){
+
+                const scores =
+                    Object.values(subjects);
+
+                const total =
+                    scores.reduce(
+                        (sum, score) =>
+                        sum + score,
+                        0
+                    );
+
+                output[student] = {
+                    average:
+                        total /
+                        scores.length
+                };
+            }
+
+            let table =
+                document.getElementById("resultTable");
+
+            table.innerHTML =
+            `
+            <tr>
+                <th>Student</th>
+                <th>Average Marks</th>
+            </tr>
+            `;
+
+            for(const student in output){
+
+                table.innerHTML +=
+                `
+                <tr>
+                    <td>${student}</td>
+                    <td>${output[student].average}</td>
+                </tr>
+                `;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
